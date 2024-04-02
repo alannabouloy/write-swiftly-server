@@ -34,4 +34,6 @@ app.use(function errorHandler(error, req, res, next) {
     res.status(500).json(response);
 });
 
+require("./routes")(app);
+
 module.exports = app;

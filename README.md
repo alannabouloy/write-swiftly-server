@@ -29,10 +29,10 @@ Next you will want to run the script command `yarn db:create`
 
 ## Roadmap
  ### Get basic server set up
-    The API will allow for an admin user to add new songs to DB with appropriate storytags assigned as well as an endpoint for fetching the song from the database which can be accessed by general public without credentials. 
+ The API will allow for an admin user to add new songs to DB with appropriate storytags assigned as well as an endpoint for fetching the song from the database which can be accessed by general public without credentials. 
  ### Create algorithm 
-    There are two options to the generating algorithm, one which focuses on returning three songs correlating to the beginning, middle, and end of a story, and one which returns 5 songs correlating to the three act narrative structure, including a hook, beginning plot point, midpoint, third plot point, climax, and closue. These songs will be randomly generated based on the storytags attached to them in the database, and will not repeat within the prompt. Both options will have an implementation created. 
+ There are two options to the generating algorithm, one which focuses on returning three songs correlating to the beginning, middle, and end of a story, and one which returns 5 songs correlating to the three act narrative structure, including a hook, beginning plot point, midpoint, third plot point, climax, and closue. These songs will be randomly generated based on the storytags attached to them in the database, and will not repeat within the prompt. Both options will have an implementation created. 
  ### Implement external API
-    There is a plan to implement Spotify's API in order to provide further details on the songs as well as album art and potentially allow for live listening and creating playlists based on the prompt. 
+ There is a plan to implement Spotify's API in order to provide further details on the songs as well as album art and potentially allow for live listening and creating playlists based on the prompt. 
 
 This server is still in development and the README will be updated as further changes are made.  
