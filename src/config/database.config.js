@@ -5,7 +5,7 @@ module.exports = {
   development: {
     username: DEV_DATABASE_USERNAME,
     password: DEV_DATABASE_PASSWORD,
-    database: "database_development",
+    database: "write-swiftly-database",
     host: DEV_DATABASE_HOST,
     dialect: "postgres"
   },
