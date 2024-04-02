@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.sequelize.query(`
-      CREATE TYPE "enum_storytag" AS ENUM ('hook', 'first plot point', 'midpoint', 'third plot point', 'climax', 'closure');
+      CREATE TYPE "enum_storytag" AS ENUM ('hook', 'firstPlotPoint', 'midpoint', 'thirdPlotPoint', 'climax', 'closure');
     `);
     await queryInterface.createTable('Songs', {
       id: {
@@ -17,7 +17,9 @@ module.exports = {
         allowNull: false
       },
       storytags: {
-        type: Sequelize.ARRAY(Sequelize.ENUM('hook', 'first polot point', 'midpoint', 'third plot point', 'climax', 'closure'))
+        type: Sequelize.ARRAY(Sequelize.ENUM({
+          values: ['hook', 'firstPlotPoint', 'midpoint', 'thirdPlotPoint', 'climax', 'closure']
+        }))
       },
       createdAt: {
         allowNull: false,
