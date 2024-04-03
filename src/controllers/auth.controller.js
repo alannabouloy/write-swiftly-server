@@ -4,11 +4,12 @@ const User = db.User;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+
 exports.signUp = ( req, res, ) => {
     return User.create({
         username: req.body.username,
         email: req.body.email,
-        password: bcrypt.hashSync( rew.body.password, 8)
+        password: bcrypt.hashSync( req.body.password, 8)
     })
         .then( newUser => {
             res.status(201).send(newUser);
@@ -23,11 +24,7 @@ exports.signIn = (req, res ) => {
         accessToken: null,
         error: "Invalid username or password"
     };
-    return User.findOne({
-        where: {
-            username: req.body.username
-        }
-    })
+    return User.findOne({ where: { username: req.body.username }})
         .then( user => {
             if(!user){
                 return res.status(401).send(signInError);
