@@ -5,9 +5,13 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
+const { DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_HOST } = require('../src/config');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.config.js')[env];
-const db = {};
+const db = new Sequelize(DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD, {
+  host: DATABASE_HOST,
+  dialect: 'postgres'
+})
 
 let sequelize;
 if (config.use_env_variable) {

@@ -1,3 +1,3 @@
 const songs = require('./songs.controller.js');
 
-module.exports = {songs};
+module.exports = { songs };
