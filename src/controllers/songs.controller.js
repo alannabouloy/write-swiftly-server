@@ -14,6 +14,20 @@ exports.songList = (req, res) => {
         })
 }
 
+exports.addSong = (req, res) => {
+    return Songs.create({
+        title: req.body.title,
+        album: req.body.album,
+        storytags: req.body.storytags
+    })
+    .then(song => {
+        res.status(201).send(song);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+}
+
 
 
 

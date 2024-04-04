@@ -18,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    album: {
+      type: DataTypes.STRING
+    },
     storytags: {
       type: DataTypes.ARRAY(DataTypes.ENUM({
         values: ["hook", "first plot point", "midpoint", "third plot point", "climax", "closure"]
