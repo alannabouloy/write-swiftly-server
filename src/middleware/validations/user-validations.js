@@ -1,4 +1,5 @@
 const User = require('../../../models').User;
+const validations = require('../../helpers/validations');
 
 /*TODO: add further validation middleware including:
   - ensure username, email, and password are all included in request body
@@ -21,6 +22,25 @@ const checkForDuplicateUsername = (req, res, next) => {
     });
 }
 
+const validateRequest = (req, res, next) => {
+    const {
+        username,
+        email,
+        password
+    } = req.body;
+
+    const keys = ["username", "email", "password"];
+    let error = validations.validateKeys({username, email, password}, keys);
+    if(error){
+        return res
+            .status(400)
+            .json(error);
+    }
+
+    next();
+
+}
+
 const checkRole = (req, res, next) => {
     User.findByPk(req.userId)
     .then( user => {
@@ -32,4 +52,4 @@ const checkRole = (req, res, next) => {
     })
 }
 
-module.exports = { checkForDuplicateUsername, checkRole };
+module.exports = { checkForDuplicateUsername, checkRole, validateRequest };

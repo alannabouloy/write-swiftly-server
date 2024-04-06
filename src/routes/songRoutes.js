@@ -9,5 +9,6 @@ const jsonParser = express.json();
 
 module.exports = app => {
     app.get('/songs', songsController.songList);
+    app.get('/song/:title', songsController.findSong);
     app.post('/songs/add', [jsonParser, verifyToken, checkRole], songsController.addSong);
 };
