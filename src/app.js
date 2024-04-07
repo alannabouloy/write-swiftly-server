@@ -16,6 +16,9 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('hello world!');
+});
 
 app.use(function errorHandler(error, req, res, next) {
     let response

@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "test": "mocha --require test/setup.js",
     "dev": "nodemon -r dotenv/config src/index.js",
     "db:create": "sequelize-cli db:create",
     "db:migrate": "sequelize-cli db:migrate",
@@ -26,7 +27,10 @@
     "sequelize": "^6.37.2"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^10.4.0",
     "nodemon": "^3.1.0",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "supertest": "^6.3.4"
   }
 }
