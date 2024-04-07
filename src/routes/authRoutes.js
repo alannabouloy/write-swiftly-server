@@ -15,6 +15,6 @@ module.exports = app => {
     });
 
     //Routes//
-    app.post('/signup', [ jsonParser, userValidation.validateRequest, userValidation.checkForDuplicateUsername ], authController.signUp );
+    app.post('/signup', [ jsonParser, userValidation.validateNewUser, userValidation.checkForDuplicateUsername, userValidation.checkForDuplicateEmail ], authController.signUp );
     app.post('/signin', [ jsonParser ], authController.signIn);
 };
