@@ -92,6 +92,22 @@ const validateNewUser = (req, res, next) => {
     next();
 }
 
+const validateUserSignin = (req, res, next) => {
+    const {
+        username,
+        password
+    } = req.body;
+
+    const keys = ["username", "password"];
+    let error = validations.validateKeys({username, password}, keys);
+    if(error){
+        return res
+        .status(400)
+        .json(error);
+    }
+    next();
+}
+
 const checkRole = (req, res, next) => {
     User.findByPk(req.userId)
     .then( user => {
@@ -107,5 +123,6 @@ module.exports = {
     checkForDuplicateUsername,
     checkForDuplicateEmail,
     checkRole,
-    validateNewUser
+    validateNewUser,
+    validateUserSignin
  };
