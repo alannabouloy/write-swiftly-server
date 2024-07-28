@@ -12,7 +12,11 @@
     "db:reset": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate",
     "db:g:seed": "sequelize-cli seed:generate --name",
     "db:seeds": "sequelize-cli db:seed:all",
-    "db:reseed": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all"
+    "db:reseed": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all",
+    "db:test:migrate": "yarn run db:migrate --env test",
+    "db:test:reset": "yarn run db:reset --env test",
+    "db:test:seeds": "yarn run db:seeds --env test",
+    "db:test:reseed": "yarn run db:reseed --env test"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

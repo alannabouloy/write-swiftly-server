@@ -8,6 +8,7 @@ const basename = path.basename(__filename);
 const { DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_HOST } = require('../src/config');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.config.js')[env];
+
 const db = new Sequelize(DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD, {
   host: DATABASE_HOST,
   dialect: 'postgres'
