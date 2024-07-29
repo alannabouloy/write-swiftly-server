@@ -4,22 +4,24 @@ const {
   DEV_DATABASE_HOST, 
   DEV_DATABASE_USERNAME, 
   DEV_DATABASE_PASSWORD,
+  DATABASE_NAME,
   TEST_DATABASE_USERNAME,
   TEST_DATABASE_PASSWORD,
-  TEST_DATABASE_HOST
+  TEST_DATABASE_HOST,
+  TEST_DATABASE_NAME
 } = process.env;
 module.exports = {
   development: {
     username: DEV_DATABASE_USERNAME,
     password: DEV_DATABASE_PASSWORD,
-    database: "write-swiftly-database",
+    database: DATABASE_NAME,
     host: DEV_DATABASE_HOST,
     dialect: "postgres"
   },
   test: {
     username: TEST_DATABASE_USERNAME,
     password: TEST_DATABASE_PASSWORD,
-    database: "swiftly-test-database",
+    database: TEST_DATABASE_NAME,
     host: TEST_DATABASE_HOST,
     dialect: "postgres"
   },

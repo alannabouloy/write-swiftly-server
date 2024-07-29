@@ -15,7 +15,7 @@ const checkForDuplicateUsername = (req, res, next) => {
         }
     }).then( user => {
         if(user){
-            res.status(400).send({error: 'Username already taken'});
+            res.status(400).send({error: { message: 'Username already taken'}});
             return;
         }
         next();
